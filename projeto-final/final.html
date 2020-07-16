@@ -12,34 +12,44 @@
         var c = parseInt(prompt('Forneça o terceiro numero'));
         var d = parseInt(prompt('Forneça o quarto numero'));
         var e = parseInt(prompt('Forneça o quinto numero'));
-       
+    
         document.write('O maior numero é ' + Math.max(a,b,c,d,e) + '<br>');
         document.write('O menor numero é ' + Math.min(a,b,c,d,e) + '<br>');
-        
-        if (a % 2 != 0){            
-            document.write('O numero' + a + ' é impar <br>');
-        } else{
-            document.write('O numero' + a + ' é par <br>');
+           
+        var conjunto = [a,b,c,d,e];
+        parimpar(conjunto);
+        repete(conjunto);
+        function repete(conjunto) {
+	        const contar = {};
+	        for (var i = 0; i < conjunto.length; i++) {
+		        const valor = conjunto[i];
+		        if (valor in contar) {
+			        contar[valor] = contar[valor] + 1;
+		        } else {
+			        contar[valor] = 1;
+		        }
+	        }
+	        for (let numero in contar) {
+		        document.write('O numero ' + numero + ' se repete ' + contar[numero] + ' vezes <br>');
+	        }
         }
-        if (b % 2 != 0){            
-            document.write('O numero ' + b + ' é impar <br>');
-        } else{
-            document.write('O numero ' + b + ' é par <br>');
-        } if (c % 2 != 0){            
-            document.write('O numero ' + c + ' é impar <br>');
-        } else{
-            document.write('O numero ' + c + ' é par <br>');
-        } if (d % 2 != 0){            
-            document.write('O numero ' + d + ' é impar <br>');
-        } else{
-            document.write('O numero ' + d + ' é par <br>');
-        } if (e % 2 != 0){            
-            document.write('O numero ' + e + ' é impar <br>');
-        } else{
-            document.write('O numero ' + e + ' é par <br>');
-        }
-       
+        // Mestre é fruto de pesquisa online, eu tive a ideia, mas não soube colocar no papel. Achei alguem que conseguiu e adaptei o codigo.
+        //Essencialmente pelo que eu entendi ele cria variaveis e constantes locais para servir de referencia e andar pelo Array 'conjunto' analisando item a item e retornando os numeros repetidos. 
+        function parimpar(conjunto) {
+	        const contar = {};
+	        for (var i = 0; i < conjunto.length; i++) {
+		        const valor = conjunto[i];
+		        if (valor % 2 != 0){            
+                    document.write('O numero ' + valor + ' é impar <br>');
+                } else{
+                    document.write('O numero ' + valor + ' é par <br>');
+                }
+            }
+        }    
+        // Usei o mesmo inicio de código para andar pelo array, mas adaptei para o meu else if de par ou impar. Ainda tenho dificuldade e terei de ver mais a fundo o funcionamento de funções.
+        // De qualquer maneira funcionou 100% aqui, caso não queira aceitar entendo (já que o código não é 100% meu), mas ficou bem mais elegante do que o monte de else if que usei antes.
+    </script>   
 
-    </script>
+    
 </body>
 </html>
