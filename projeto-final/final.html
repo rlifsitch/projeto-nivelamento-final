@@ -29,14 +29,13 @@
 			        contar[valor] = 1;
 		        }
 	        }
-	        for (let numero in contar) {
+	        for (var numero in contar) {
 		        document.write('O numero ' + numero + ' se repete ' + contar[numero] + ' vezes <br>');
 	        }
         }
         // Mestre é fruto de pesquisa online, eu tive a ideia, mas não soube colocar no papel. Achei alguem que conseguiu e adaptei o codigo.
         //Essencialmente pelo que eu entendi ele cria variaveis e constantes locais para servir de referencia e andar pelo Array 'conjunto' analisando item a item e retornando os numeros repetidos. 
         function parimpar(conjunto) {
-	        const contar = {};
 	        for (var i = 0; i < conjunto.length; i++) {
 		        const valor = conjunto[i];
 		        if (valor % 2 != 0){            
